@@ -2,7 +2,8 @@
 #include <vector>
 #include <iomanip>
 #include <string>
-#include<time.h>
+#include <time.h>
+#include <cstdlib>
 
 using namespace std;
 
@@ -15,6 +16,7 @@ struct student
 };
 
 vector<student> stud;
+int count = 0;
 
 int final_choice;
 
@@ -35,8 +37,6 @@ void FillArr()
 {
     string choice;
 
-    int count;
-
     cout<<"Iveskite studentu skaiciu: ";
     cin>>count;
 
@@ -44,11 +44,12 @@ void FillArr()
     {
         stud.push_back(student());
 
-        cout<<"Iveskite mokinio varda: ";
+        cout<<"Iveskite mokinio ["<<i+1<<"] varda: ";
         cin>>stud[i].name;
 
-        cout<<"Iveskite mokinio Pavarde: ";
+        cout<<"Iveskite mokinio ["<<i+1<<"] Pavarde: ";
         cin>>stud[i].surname;
+        cout<<endl;
     }
 
     cout<<"Ar mokinio ivertinimus generuoti atsitiktinai? (y/n)";
@@ -77,14 +78,15 @@ void FillArr()
                     {
                         cout<<"iveskite "<<stud[i].name<<"  namu darbu pazymi: ";
                         cin>>grade;
-                        stud[i].homework_grades.push_back(grade);                 
+                        stud[i].homework_grades.push_back(grade);
                     }
                     else
                     {
                         break;
                     }
-                }            
+                }
             }
+            break;
         }
         else if(choice == "y")
         {
@@ -94,10 +96,10 @@ void FillArr()
             {
                 stud[i].exam_grade = rand() % 10 + 1;
                 for(int j = 0; j < rand()%10+1; j++)
-                {   
+                {
                     grade = rand() % 10 + 1;
                     stud[i].homework_grades.push_back(grade);
-                }               
+                }
             }
             break;
         }
@@ -130,9 +132,7 @@ void calculateFinal(int i)
 }
 
 void printArr()
-{  
-    int count = 2;
-
+{
     while(true)
     {
         cout<<"Skaiciuoti naudojant mediana(1) ar formule(2)? ";
@@ -142,23 +142,21 @@ void printArr()
         else
             cout<<"Bloga Ivestis";
     }
-    
-
 
     cout<<"Pavarde"<<setw(10)<<"Vardas"<<setw(44)<<"Galutinis (Vid.) / Galutinis (Med.)"<<endl;
     cout<<"--------------------------------------------------------------"<<endl;
-    
+
     for(int i = 0; i < count; i++)
     {
         cout<<setw(11)<<left<<stud[i].name<<setw(15)<<left<<stud[i].surname;
         calculateFinal(i);
         if(final_choice == 2)
         {
-            cout<<setw(19)<<left<<setprecision(2)<<fixed<<final<<setw(19)<<left<<"xx.yy";      
+            cout<<setw(19)<<left<<setprecision(2)<<fixed<<final<<setw(19)<<left<<"xx.yy";
         }
         else if(final_choice == 1)
         {
-            cout<<setw(19)<<left<<"xx.yy"<<setw(19)<<left<<setprecision(2)<<fixed<<final;   
+            cout<<setw(19)<<left<<"xx.yy"<<setw(19)<<left<<setprecision(2)<<fixed<<final;
         }
         final = 0;
         cout<<endl;
