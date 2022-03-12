@@ -24,7 +24,7 @@ void FillArr();
 void printArr();
 void calculateFinal();
 
-float final = 0;
+float mfinal = 0;
 
 int main()
 {
@@ -53,8 +53,6 @@ void FillArr()
     }
 
     cout<<"Ar mokinio ivertinimus generuoti atsitiktinai? (y/n)";
-
-    int pazimys;
 
     while(true)
     {
@@ -114,20 +112,29 @@ void calculateFinal(int i)
 {
     int num = i;
     float sum = 0;
-
-    for(int j=0; j<stud[num].homework_grades.size(); j++)
-    {
-        sum+=stud[num].homework_grades[j];
-    }
+    int hm_size = stud[num].homework_grades.size();
 
     if(final_choice == 2)
     {
-        final = 0.4 * sum / stud[num].homework_grades.size() + 0.6 * stud[num].exam_grade;
+        mfinal = 0.4 * sum / hm_size + 0.6 * stud[num].exam_grade;
     }
 
     else if(final_choice == 1)
     {
-        final = 0.5*(sum / stud[num].homework_grades.size() + stud[num].exam_grade);
+        vector <float> arr_temp;
+        arr_temp = stud[num].homework_grades;
+        arr_temp.push_back(stud[num].exam_grade);
+
+        int arr_s = arr_temp.size();
+
+        if(arr_s % 2 == 0)
+        {
+            mfinal = 0.5*(arr_temp[arr_s/2 - 1]+arr_temp[arr_s/2]);
+        }
+        else
+        {
+            mfinal = (arr_temp[arr_s/2 - 0.5]);
+        }
     }
 }
 
@@ -152,13 +159,13 @@ void printArr()
         calculateFinal(i);
         if(final_choice == 2)
         {
-            cout<<setw(19)<<left<<setprecision(2)<<fixed<<final<<setw(19)<<left<<"xx.yy";
+            cout<<setw(19)<<left<<setprecision(2)<<fixed<<mfinal<<setw(19)<<left<<"xx.yy";
         }
         else if(final_choice == 1)
         {
-            cout<<setw(19)<<left<<"xx.yy"<<setw(19)<<left<<setprecision(2)<<fixed<<final;
+            cout<<setw(19)<<left<<"xx.yy"<<setw(19)<<left<<setprecision(2)<<fixed<<mfinal;
         }
-        final = 0;
+        mfinal = 0;
         cout<<endl;
     }
 }
