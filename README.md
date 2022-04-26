@@ -14,3 +14,6 @@ Objektinio programavimo užduptis pagal reikalavimus:
     std::vector  tipo konteinerį.
 
 ·Papildykite programą taip, kad būtų galimybė, jog mokinio gautieji balai už namų darbus bei egzaminą būtų generuojami atsitiktinai.
+
+# Versijos 0.4 ataskaita
+![Ataskaita](https://user-images.githubusercontent.com/78239508/165404608-bd29b21d-c56a-4150-abed-a53290321fe0.png)
