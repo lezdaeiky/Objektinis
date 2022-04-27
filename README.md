@@ -17,3 +17,13 @@ Objektinio programavimo užduptis pagal reikalavimus:
 
 # Versijos 0.4 ataskaita
 ![Ataskaita](https://user-images.githubusercontent.com/78239508/165404608-bd29b21d-c56a-4150-abed-a53290321fe0.png)
+# Versijos 0.5 ataskaita
+-Konteinerių testavimas: Išmatuokite patobulintos v0.4 realizacijos veikimo spartą priklausomai nuo naudojamų trijų skirtingų tipų konteinerių (t.y. tureti arba vieną programą su treis skirtingais konteineriais, arba tris skirtingas programas su atitinkamais konteineriais): 
+
+----------Vector ir Deque konteineriu spartos palyginimas--------------
+![image](https://user-images.githubusercontent.com/78239508/165484035-27f3a1dd-8f7f-460c-81d0-4897f320be03.png)
+
+----------Kompiuterio specifikacijos--------------
+CPU: Processor	Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz, 2801 Mhz, 4 Core(s), 8 Logical Processor(s)
+RAM: Installed Physical Memory (RAM)	16.0 GB DDR4
+SSD: 500GB SSD SATAIII
